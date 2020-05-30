@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="Test.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Application.Resources>
+
+        <!--  Text colours  -->
+        <Color x:Key="MainText">#fff</Color>
+        <Color x:Key="DarkText">#000</Color>
+
+        <Color x:Key="ColorPrimaryDark">#D2691E</Color>
+        <Color x:Key="ColorPrimary">#F4A460</Color>
+
+        <!--  font families  -->
+        <OnPlatform x:Key="BoldFont" x:TypeArguments="x:String">
+            <On Platform="Android" Value="OpenSans-Bold.ttf#Open Sans" />
+            <On Platform="iOS" Value="OpenSans-Bold" />
+        </OnPlatform>
+        <OnPlatform x:Key="RegularFont" x:TypeArguments="x:String">
+            <On Platform="Android" Value="OpenSans-Regular.ttf#Open Sans" />
+            <On Platform="iOS" Value="OpenSans-Regular" />
+        </OnPlatform>
+        <OnPlatform x:Key="LightFont" x:TypeArguments="x:String">
+            <On Platform="Android" Value="OpenSans-Light.ttf#Open Sans" />
+            <On Platform="iOS" Value="OpenSans-Light" />
+        </OnPlatform>
+        <OnPlatform x:Key="ScoreBoardFont" x:TypeArguments="x:String">
+            <On Platform="Android" Value="CursedTimerUlil-Aznm.ttf#Cursed Timer" />
+            <On Platform="iOS" Value="CursedTimerUlil-Aznm.ttf" />
+        </OnPlatform>
+
+        <!--  Styles  -->
+        <Style x:Key="Score" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource ScoreBoardFont}" />
+            <Setter Property="FontSize" Value="50" />
+            <Setter Property="TextColor" Value="{StaticResource MainText}" />
+        </Style>
+
+        <Style x:Key="TeamText" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="TextColor" Value="{DynamicResource MainText}" />
+        </Style>
+        <Style x:Key="ResetButton" TargetType="Button">
+            <Setter Property="FontFamily" Value="{StaticResource LightFont}" />
+            <Setter Property="TextColor" Value="{StaticResource MainText}" />
+            <Setter Property="FontSize" Value="Title" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="Margin" Value="0,0,0,5" />
+            <Setter Property="BorderColor" Value="White" />
+            <Setter Property="CornerRadius" Value="30" />
+            <Setter Property="BorderWidth" Value="2" />
+        </Style>
+
+        <Style x:Key="ScoreButton" TargetType="Button">
+            <Setter Property="FontFamily" Value="{StaticResource LightFont}" />
+            <Setter Property="TextColor" Value="{StaticResource MainText}" />
+            <Setter Property="FontSize" Value="Title" />
+            <Setter Property="BackgroundColor" Value="LightGreen" />
+            <Setter Property="Margin" Value="5,0,5,10" />
+            <Setter Property="CornerRadius" Value="30" />
+        </Style>
+
+        <Style x:Key="MinusScoreButton" TargetType="Button">
+            <Setter Property="FontFamily" Value="{StaticResource LightFont}" />
+            <Setter Property="TextColor" Value="{StaticResource MainText}" />
+            <Setter Property="FontSize" Value="Title" />
+            <Setter Property="BackgroundColor" Value="Red" />
+            <Setter Property="Margin" Value="20,0,0,10" />
+            <Setter Property="CornerRadius" Value="50" />
+            <Setter Property="BorderColor" Value="White" />
+            <Setter Property="BorderWidth" Value="2" />
+            <Setter Property="Opacity" Value="0.8" />
+        </Style>
+
+        <!--  Implicit Styles  -->
+        <Style TargetType="Grid">
+            <Setter Property="RowSpacing" Value="0" />
+            <Setter Property="ColumnSpacing" Value="0" />
+        </Style>
+
+        <Style TargetType="Frame">
+            <Setter Property="Padding" Value="0" />
+        </Style>
+    </Application.Resources>
+</Application>

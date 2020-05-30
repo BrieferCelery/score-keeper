@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rg:PopupPage
+    x:Class="Test.Views.SubViews.MessageBox"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:rg="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    mc:Ignorable="d">
+    <Grid HeightRequest="265" VerticalOptions="End">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="AUTO" />
+        </Grid.RowDefinitions>
+
+        <Frame
+            Grid.RowSpan="2"
+            Padding="20,0"
+            BackgroundColor="White"
+            CornerRadius="30"
+            HeightRequest="225"
+            VerticalOptions="End">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Image
+                    Aspect="Fill"
+                    HeightRequest="80"
+                    HorizontalOptions="Center"
+                    Source="Chicken.png"
+                    TranslationY="-80"
+                    VerticalOptions="Center"
+                    WidthRequest="80" />
+                <StackLayout
+                    HorizontalOptions="Center"
+                    Orientation="Vertical"
+                    Spacing="10"
+                    VerticalOptions="Center">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        HorizontalTextAlignment="Center"
+                        Text="Winner, Winner Chicken Dinner!"
+                        TextColor="#E10555" />
+                    <Label
+                        FontSize="15"
+                        Text="OKAY THIS IS TJUST SOME TRASH TEXTAds"
+                        TextColor="#363636" />
+                </StackLayout>
+            </Grid>
+        </Frame>
+        <Button
+            Grid.Row="1"
+            BackgroundColor="#E10555"
+            Clicked="Button_Clicked"
+            HeightRequest="45"
+            Text="Continue"
+            TextColor="White" />
+    </Grid>
+
+</rg:PopupPage>

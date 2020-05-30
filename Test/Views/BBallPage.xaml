@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="Test.Views.BBallPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Test.ViewModels"
+    Title="Ball is Life"
+    BackgroundColor="{StaticResource ColorPrimaryDark}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:BBallViewModel x:Key="vm" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.RowSpan="3" Grid.ColumnSpan="2">
+
+            <BoxView
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+                BackgroundColor="{StaticResource ColorPrimary}"
+                HeightRequest="1"
+                VerticalOptions="Start" />
+
+            <Image
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+                HorizontalOptions="Center"
+                Source="Court.png"
+                VerticalOptions="Start" />
+
+
+            <!--  FIRST COLUMN  -->
+            <StackLayout
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="10,10"
+                BindingContext="{StaticResource vm}"
+                Orientation="Vertical">
+
+                <Frame
+                    Padding="5"
+                    BackgroundColor="Transparent"
+                    CornerRadius="50"
+                    HorizontalOptions="Center"
+                    WidthRequest="100">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource Score}"
+                        Text="{Binding HomeScore}" />
+                </Frame>
+
+                <Frame
+                    Margin="10,10"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    CornerRadius="10"
+                    HeightRequest="40">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource TeamText}"
+                        Text="Home" />
+                </Frame>
+
+                <!--  Score Buttons Team A  -->
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Button
+                        Grid.Row="0"
+                        Command="{Binding PlayerALongRangeShotCommand}"
+                        ImageSource="BasketballColor.png"
+                        Style="{StaticResource ScoreButton}"
+                        Text="+3" />
+                    <Button
+                        Grid.Row="2"
+                        Command="{Binding PlayerACloseRangeShotCommand}"
+                        ImageSource="BasketballColor.png"
+                        Style="{StaticResource ScoreButton}"
+                        Text="+2" />
+                </Grid>
+            </StackLayout>
+            <Grid
+                Grid.Row="1"
+                Grid.Column="0"
+                BindingContext="{StaticResource vm}">
+                <Button
+                    Command="{Binding PlayerAMinusCommand}"
+                    ImageSource="BasketballColor.png"
+                    Style="{StaticResource MinusScoreButton}"
+                    Text="-1"
+                    VerticalOptions="Center" />
+            </Grid>
+
+
+            <!--  SECOND COLUMN  -->
+            <StackLayout
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="10,10"
+                BindingContext="{StaticResource vm}"
+                Orientation="Vertical">
+
+                <Frame
+                    Padding="5"
+                    BackgroundColor="Transparent"
+                    CornerRadius="50"
+                    HorizontalOptions="Center"
+                    WidthRequest="100">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource Score}"
+                        Text="{Binding AwayScore}" />
+                </Frame>
+
+                <Button Text="show POPUP" Clicked="Button_Clicked"/>
+
+                <Frame
+                    Margin="10,10"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    CornerRadius="10"
+                    HeightRequest="40">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource TeamText}"
+                        Text="Away" />
+                </Frame>
+                <!--  Score Buttons Team B  -->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Button
+                        Command="{Binding PlayerBLongRangeShotCommand}"
+                        ImageSource="BasketballColor.png"
+                        Style="{StaticResource ScoreButton}"
+                        Text="+3" />
+                    <Button
+                        Grid.Row="1"
+                        Command="{Binding PlayerBCloseRangeShotCommand}"
+                        ImageSource="BasketballColor.png"
+                        Style="{StaticResource ScoreButton}"
+                        Text="+2" />
+                </Grid>
+            </StackLayout>
+
+            <Grid
+                Grid.Row="1"
+                Grid.Column="1"
+                BindingContext="{StaticResource vm}">
+                <Button
+                    Command="{Binding PlayerBMinusCommand}"
+                    ImageSource="BasketballColor.png"
+                    Style="{StaticResource MinusScoreButton}"
+                    Text="-1"
+                    VerticalOptions="Center" />
+            </Grid>
+
+            <Button
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                BindingContext="{StaticResource vm}"
+                Command="{Binding ResetCommand}"
+                Style="{StaticResource ResetButton}"
+                Text="RESET"
+                VerticalOptions="End" />
+        </Grid>
+    </Grid>
+</ContentPage>
